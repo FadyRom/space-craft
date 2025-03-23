@@ -1,0 +1,27 @@
+.starfield {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black; /* Background color for the starfield */
+}
+
+.star {
+  position: absolute;
+  width: 2px; /* Width of the star */
+  height: 2px; /* Height of the star */
+  background-color: white; /* Color of the star */
+  border-radius: 50%; /* Make the star circular */
+  animation: twinkle infinite linear; /* Twinkle animation */
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.5; /* Initial opacity */
+    transform: translate(100vw, 100vh);
+  }
+  100% {
+    opacity: 1; /* Final opacity */
+    transform: translate(0%, 0%);
+  }
+}

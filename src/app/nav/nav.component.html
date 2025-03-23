@@ -1,0 +1,61 @@
+<nav class="nav-container">
+  <img src="logo.png" alt="space craft logo" class="logo" routerLink="/" />
+  <ul class="nav-ul">
+    <li class="nav-links">
+      <a
+        routerLink="/"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+    </li>
+
+    <li class="nav-links">
+      <a routerLink="/services" routerLinkActive="active-link">Services</a>
+    </li>
+    <li class="nav-links">
+      <a routerLink="/gallery" routerLinkActive="active-link">Gallery</a>
+    </li>
+    <li class="nav-links">
+      <a routerLink="/contact-us" routerLinkActive="active-link">Contact Us</a>
+    </li>
+  </ul>
+
+  <div class="icons">
+    <i class="fa-brands fa-linkedin"></i>
+    <i class="fa-brands fa-github"></i>
+  </div>
+
+  <div class="small-nav">
+    <i class="fa-solid fa-bars burger" (click)="showNav()"></i>
+  </div>
+  @if (navState()) {
+
+  <div class="animated-div" (click)="showNav()"></div>
+  <ul class="nav-ul-small">
+    <li class="logo-close-li">
+      <img src="logo.png" alt="space craft logo" class="logo" routerLink="/" />
+      <i class="fa-solid fa-xmark" (click)="showNav()"></i>
+    </li>
+
+    <li class="nav-links">
+      <a
+        routerLink="/"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+    </li>
+
+    <li class="nav-links">
+      <a routerLink="/services" routerLinkActive="active-link">Services</a>
+    </li>
+    <li class="nav-links">
+      <a routerLink="/gallery" routerLinkActive="active-link">Gallery</a>
+    </li>
+    <li class="nav-links">
+      <a routerLink="/contact-us" routerLinkActive="active-link">Contact Us</a>
+    </li>
+  </ul>
+  }
+</nav>

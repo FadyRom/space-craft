@@ -1,0 +1,31 @@
+<app-header
+  h2Element="See More"
+  h3Element="Explore"
+  imageSrc="space-images/moon.jpg"
+/>
+
+@if (searchTerm()) {
+
+<section class="search-results" #searchResults>
+  <h2>{{ searchTerm() }}</h2>
+  @for (item of displayCollection();track item) {
+  <div class="search-image-explanation-div">
+    <p>{{ item.collectionData.description }}</p>
+    <img
+      [src]="item.collectionLinks.href"
+      [alt]="item.collectionData.title"
+      class="search-image"
+    />
+  </div>
+  } @if (displayCollection().length < collectionLinksData().length) {
+
+  <button class="load-more" (click)="loadMore()">
+    Load More About {{ searchTerm() }}
+  </button>
+  } @if (noResults()) {
+  <h3>No Results Found</h3>
+  }
+</section>
+}
+
+<app-footer />

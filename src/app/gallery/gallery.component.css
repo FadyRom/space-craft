@@ -1,0 +1,116 @@
+.gallery-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-div {
+  min-height: 100vh;
+  width: 90vw;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 400px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+.image-div:nth-child(2) {
+  grid-row: span 2;
+  position: relative;
+}
+
+::after {
+  content: "\f002"; /* Font Awesome search icon */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900; /* Required for solid icons */
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  color: #ff8000;
+  font-size: 1.5rem;
+  position: absolute;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0; /* Instead of display: none */
+  transition: opacity 0.2s ease-in-out;
+}
+::before {
+  content: "Know More"; /* Font Awesome search icon */
+  font-weight: 500; /* Required for solid icons */
+  display: flex;
+  justify-content: center;
+  color: #ff8000;
+  font-size: 1.5rem;
+  position: absolute;
+  border-radius: 20px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0; /* Instead of display: none */
+  transition: opacity 0.2s ease-in-out;
+  z-index: 10;
+}
+
+.image-div:hover::after,
+.image-div:hover::before {
+  display: flex;
+  opacity: 1;
+}
+
+.gallery-images {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .gallery-div {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .gallery-div {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .gallery-div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .image-div:nth-child(2) {
+    grid-row: span 2;
+  }
+  .image-div:nth-child(6),
+  .image-div:nth-child(7) {
+    grid-column: span 2;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

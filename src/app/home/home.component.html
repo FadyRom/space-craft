@@ -1,0 +1,135 @@
+<app-header
+  imageSrc="/space-images/space-colors.jpg"
+  h3Element="EXPLORE"
+  h2Element="THE UNIVERSE"
+></app-header>
+
+<section #sectionRef>
+  <div class="whatWeDo">
+    <h3 class="whatWeDoH3">What We Do</h3>
+    <h2>Discover About The <span>Universe</span></h2>
+  </div>
+  <div class="sectionOfImages">
+    <div class="imagesDeclerationsTopLeft">
+      <h3>Today</h3>
+      <h4>Discover The Latest Pictures That Was Taken By Nasa</h4>
+    </div>
+    <div class="imagesDeclerationsTopRight">
+      <h3>ISS</h3>
+      <h4>
+        Floating 400 km above Earth, the ISS is a hub of innovation, research,
+        and the future of space travel.
+      </h4>
+    </div>
+    <div class="imagesDeclerationsBottomLeft">
+      <h3>Planets</h3>
+      <h4>
+        From the scorching surface of Venus to Neptune’s icy winds, every planet
+        holds a secret of the universe.
+      </h4>
+    </div>
+    <div class="imagesDeclerationsBottomRight">
+      <h3>Universe</h3>
+      <h4>
+        The universe is vast, mysterious, and full of surprises—discover a new
+        cosmic fact every day!
+      </h4>
+    </div>
+    <div class="topImages">
+      <div class="image1Div">
+        <img
+          class="imagesSpace image1"
+          src="/space-images/today.jpg"
+          alt="images Space"
+        />
+        <div class="imagesDeclerations">
+          <h3>Today</h3>
+          <h4>Discover The Latest Pictures That Was Taken By Nasa</h4>
+        </div>
+      </div>
+      <div class="image2Div">
+        <img
+          class="imagesSpace image2"
+          src="/space-images/planets.jpg"
+          alt="images Space"
+        />
+        <div class="imagesDeclerations">
+          <h3>Planets</h3>
+          <h4>
+            From the scorching surface of Venus to Neptune’s icy winds, every
+            planet holds a secret of the universe.
+          </h4>
+        </div>
+      </div>
+    </div>
+    <div class="bottomImages">
+      <div class="image3Div">
+        <img
+          class="imagesSpace image3"
+          src="/space-images/iss.jpg"
+          alt="images Space"
+        />
+        <div class="imagesDeclerations">
+          <h3>ISS</h3>
+          <h4>
+            Floating 400 km above Earth, the ISS is a hub of innovation,
+            research, and the future of space travel.
+          </h4>
+        </div>
+      </div>
+      <div class="image4Div">
+        <img
+          class="imagesSpace image4"
+          src="/space-images/universe.jpg"
+          alt="imagesSpace"
+        />
+        <div class="imagesDeclerations">
+          <h3>Universe</h3>
+          <h4>
+            The universe is vast, mysterious, and full of surprises—discover a
+            new cosmic fact every day!
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div #sectionRef>
+  <h2 class="pod-h2">Picture Of The Day</h2>
+  <section class="pod-section">
+    @if (pictureOfTheDay | async) {
+    <div class="pod-description">
+      <h2 class="title-pod-big">{{ picOfTheDay().title }}</h2>
+      <article>{{ picOfTheDay().explanation }}</article>
+      <p class="date-pod">Date: {{ picOfTheDay().date }}</p>
+    </div>
+    <img [src]="picOfTheDay().url" alt="" />
+    }
+  </section>
+</div>
+
+<section class="gallery" #sectionRef>
+  <div>
+    <h2>The Solar System</h2>
+  </div>
+  <div class="gallery-images">
+    <div #imageElements class="gallery-cards gallery-card1">
+      <h3>Asteroids, Commets & Meteors</h3>
+    </div>
+
+    <div #imageElements class="gallery-cards gallery-card2">
+      <h3>Solar System</h3>
+    </div>
+
+    <div #imageElements class="gallery-cards gallery-card3">
+      <h3>Search Through NASA</h3>
+    </div>
+
+    <div #imageElements class="gallery-cards gallery-card4">
+      <h3>Asteroids, Commets & Meteors</h3>
+    </div>
+  </div>
+</section>
+
+<app-footer #sectionRef />

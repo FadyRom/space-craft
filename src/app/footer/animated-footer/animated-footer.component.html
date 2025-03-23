@@ -1,0 +1,15 @@
+<div class="starfield">
+  @for (star of stars; track $index) {
+
+  <div
+    class="star"
+    [ngStyle]="{
+      left: star.left,
+      top: star.top,
+      'animation-duration': star.animationDuration
+    }"
+  ></div>
+
+  }
+  <ng-content></ng-content>
+</div>

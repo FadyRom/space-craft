@@ -1,0 +1,101 @@
+@keyframes animate-header {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+    transform-origin: center;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    transform-origin: center;
+  }
+}
+
+footer {
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h3::before {
+  content: "";
+  margin: 0 1rem;
+  display: inline-block;
+  width: 200px; /* Adjust the length of the line */
+  height: 1px; /* Adjust the thickness of the line */
+  background-color: #ff8000;
+}
+h3::after {
+  content: "";
+  margin: 0 1rem;
+  display: inline-block;
+  width: 200px; /* Adjust the length of the line */
+  height: 1px; /* Adjust the thickness of the line */
+  background-color: #ff8000;
+}
+
+h3 {
+  animation: animate-header 0.5s ease-in-out;
+  color: #ff8000;
+  font-size: 1.5rem;
+  font-weight: 500;
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+}
+
+h2 {
+  animation: animate-header 0.5s ease-in-out;
+  font-size: 3rem;
+  font-weight: 700;
+  transition: 0.5s;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+  h3::before {
+    width: 100px; /* Adjust the length of the line */
+  }
+  h3::after {
+    width: 100px; /* Adjust the length of the line */
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-size: 4.5rem;
+    font-weight: 700;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-size: 4.5rem;
+    font-weight: 700;
+  }
+}

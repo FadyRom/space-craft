@@ -1,0 +1,24 @@
+<app-header
+  h3Element="OUR GALLERY"
+  h2Element="EVERY PICTURE TELLS A STORY"
+  imageSrc="/space-images/gallery-header.jpg"
+/>
+
+<section class="gallery-section">
+  <div class="gallery-div">
+    @for (image of imageSrc(); track image) {
+
+    <div class="image-div" (click)="searchImage(image.alt)">
+      <img
+        #image
+        [src]="image.src"
+        alt="space image"
+        class="gallery-images"
+        [alt]="image.alt"
+      />
+    </div>
+    }
+  </div>
+</section>
+
+<app-footer />

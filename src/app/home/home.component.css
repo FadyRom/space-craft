@@ -1,0 +1,461 @@
+@keyframes animate-top-left {
+  from {
+    transform: translate(-1rem, -1rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes animate-top-right {
+  from {
+    transform: translate(1rem, -1rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes animate-bottom-left {
+  from {
+    transform: translate(-1rem, 1rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes animate-bottom-right {
+  from {
+    transform: translate(1rem, 1rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+
+section {
+  min-height: 100vh;
+  height: fit-content;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.whatWeDoH3 {
+  color: #ff8000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatWeDoH3::before {
+  content: "";
+  margin: 0 1rem;
+  display: inline-block;
+  width: 200px; /* Adjust the length of the line */
+  height: 1px; /* Adjust the thickness of the line */
+  background-color: #ff8000;
+}
+.whatWeDoH3::after {
+  content: "";
+  margin: 0 1rem;
+  display: inline-block;
+  width: 200px; /* Adjust the length of the line */
+  height: 1px; /* Adjust the thickness of the line */
+  background-color: #ff8000;
+}
+
+.whatWeDo h2 {
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 1rem 0;
+  transition: 1s;
+}
+
+.whatWeDo h2 span {
+  color: #ff8000;
+}
+
+.sectionOfImages {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.sectionOfImages img {
+  cursor: pointer;
+}
+
+.imagesDeclerationsTopLeft h3,
+.imagesDeclerationsTopRight h3,
+.imagesDeclerationsBottomLeft h3,
+.imagesDeclerationsBottomRight h3 {
+  color: #ff8000;
+}
+
+img {
+  object-fit: cover;
+}
+
+.image1 {
+  animation: animate-top-left 0.5s linear;
+}
+.image2 {
+  animation: animate-bottom-left 0.5s linear;
+}
+.image3 {
+  animation: animate-top-right 0.5s linear;
+}
+.image4 {
+  animation: animate-bottom-right 0.5s linear;
+}
+
+.image1:hover {
+  transform: translate(-0.5rem, -0.5rem);
+}
+.image2:hover {
+  transform: translate(-0.5rem, 0.5rem);
+}
+.image3:hover {
+  transform: translate(0.5rem, -0.5rem);
+}
+.image4:hover {
+  transform: translate(0.5rem, 0.5rem);
+}
+
+.imagesDeclerations {
+  margin: 0 0 2rem 1rem;
+  text-align: left;
+}
+.imagesDeclerations h3 {
+  color: #ff8000;
+}
+
+.pod-h2 {
+  text-align: center;
+  color: #ff8000;
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+.pod-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pod-description {
+  text-align: left;
+  color: white;
+}
+
+.pod-description h2 {
+  color: #ff8000;
+  margin-bottom: 0.2rem;
+}
+
+.date-pod {
+  color: gray;
+  margin-top: 1rem;
+}
+
+.pod-section img {
+  height: 80vh;
+  width: 40vw;
+  border-radius: 25px;
+  transition: 0.5s;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 2rem;
+}
+
+.gallery h2 {
+  text-align: left;
+  color: #ff8000;
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+.gallery-images {
+  display: grid;
+  place-items: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1rem;
+}
+
+.gallery-cards {
+  height: 25rem;
+  width: 18rem;
+  display: flex;
+  align-items: end;
+  text-align: start;
+  padding: 1rem;
+}
+
+.gallery-cards h3 {
+  font-size: 4cqb;
+}
+
+.gallery-card1 {
+  background: url("/space-images/asteroids.jpg") no-repeat center;
+  background-size: cover;
+}
+.gallery-card2 {
+  background: url("/space-images/solar-system.jpg") no-repeat center;
+  background-size: cover;
+}
+.gallery-card3 {
+  background: url("/space-images/search.jpg") no-repeat center;
+  background-size: cover;
+}
+.gallery-card4 {
+  background: url("/space-images/exoplanets.jpg") no-repeat center;
+  background-size: cover;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .sectionOfImages {
+    flex-direction: column;
+  }
+
+  .sectionOfImages img:hover {
+    transform: translate(0);
+  }
+
+  .topImages img {
+    margin: 1rem 0;
+  }
+
+  .bottomImages img {
+    margin: 1rem 0;
+  }
+
+  .imagesSpace {
+    border-radius: 25px;
+    width: 95vw;
+    height: 10rem;
+  }
+
+  .whatWeDoH3::before {
+    width: 70px; /* Adjust the length of the line */
+  }
+  .whatWeDoH3::after {
+    width: 70px; /* Adjust the length of the line */
+  }
+
+  .whatWeDo h2 {
+    font-size: 2rem;
+  }
+  .imagesDeclerationsTopLeft,
+  .imagesDeclerationsTopRight,
+  .imagesDeclerationsBottomLeft,
+  .imagesDeclerationsBottomRight {
+    display: none;
+  }
+
+  .pod-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pod-description {
+    order: 2;
+  }
+
+  .pod-section img {
+    order: 1;
+    width: 95vw;
+    height: 12rem;
+  }
+
+  .gallery-cards {
+    height: 90vh;
+    width: 90vw;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .sectionOfImages {
+    flex-direction: column;
+  }
+
+  .sectionOfImages img:hover {
+    transform: translate(0);
+  }
+
+  .topImages img {
+    margin: 1rem 0;
+  }
+
+  .bottomImages img {
+    margin: 1rem 0;
+  }
+
+  .imagesSpace {
+    border-radius: 25px;
+    width: 95vw;
+    height: 15rem;
+  }
+
+  .whatWeDoH3::before {
+    width: 90px; /* Adjust the length of the line */
+  }
+  .whatWeDoH3::after {
+    width: 90px; /* Adjust the length of the line */
+  }
+
+  .whatWeDo h2 {
+    font-size: 2.5rem;
+  }
+
+  .imagesDeclerationsTopLeft,
+  .imagesDeclerationsTopRight,
+  .imagesDeclerationsBottomLeft,
+  .imagesDeclerationsBottomRight {
+    display: none;
+  }
+
+  .pod-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pod-description {
+    order: 2;
+  }
+
+  .pod-section img {
+    order: 1;
+    width: 95vw;
+    height: 12rem;
+  }
+
+  .pod-section img {
+    order: 1;
+    width: 95vw;
+    height: 12rem;
+  }
+
+  .gallery-images {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-cards {
+    height: 90vh;
+    width: 90vw;
+  }
+}
+
+/* to delete repetitve code only */
+@media only screen and (min-width: 768px) {
+  .imagesDeclerations {
+    display: none;
+  }
+
+  .topImages .image2,
+  .bottomImages .image4 {
+    margin-top: -0.1rem;
+  }
+
+  .topImages,
+  .bottomImages {
+    padding: 1rem 0;
+  }
+
+  .image1 {
+    border-radius: 100% 0 0 0;
+    transition: 0.5s;
+  }
+
+  .image2 {
+    border-radius: 0 0 0 100%;
+    transition: 0.5s;
+  }
+
+  .image3 {
+    border-radius: 0 100% 0 0;
+    transition: 0.5s;
+  }
+
+  .image4 {
+    border-radius: 0 0 100% 0;
+    transition: 0.5s;
+  }
+
+  .imagesSpace {
+    width: 15rem;
+    height: 15rem;
+    box-shadow: 0 20px 80px rgba(79, 79, 223, 0.251);
+  }
+
+  .whatWeDoH3::before {
+    width: 100px; /* Adjust the length of the line */
+  }
+  .whatWeDoH3::after {
+    width: 100px; /* Adjust the length of the line */
+  }
+
+  .imagesDeclerationsTopLeft {
+    width: 30%;
+    text-align: left;
+    position: absolute;
+    left: 2rem;
+    top: 5%;
+  }
+
+  .imagesDeclerationsTopRight {
+    width: 30%;
+    text-align: left;
+    position: absolute;
+    right: 1rem;
+    top: 5%;
+  }
+  .imagesDeclerationsBottomLeft {
+    width: 30%;
+    text-align: left;
+    position: absolute;
+    left: 2rem;
+    bottom: 5%;
+  }
+  .imagesDeclerationsBottomRight {
+    width: 30%;
+    text-align: left;
+    position: absolute;
+    right: 2rem;
+    bottom: 5%;
+  }
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .pod-section img {
+    width: 20rem;
+    height: 60vh;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .imagesSpace {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
