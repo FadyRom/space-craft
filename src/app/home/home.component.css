@@ -1,39 +1,42 @@
-@keyframes animate-top-left {
+@keyframes animate-move {
   from {
-    transform: translate(-1rem, -1rem);
-  }
-  to {
-    transform: translate(0);
-  }
-}
-@keyframes animate-top-right {
-  from {
-    transform: translate(1rem, -1rem);
-  }
-  to {
-    transform: translate(0);
-  }
-}
-@keyframes animate-bottom-left {
-  from {
-    transform: translate(-1rem, 1rem);
-  }
-  to {
-    transform: translate(0);
-  }
-}
-@keyframes animate-bottom-right {
-  from {
-    transform: translate(1rem, 1rem);
+    transform: translate(var(--x, 0), var(--y, 0));
   }
   to {
     transform: translate(0);
   }
 }
 
+.image1 {
+  --x: -1rem;
+  --y: -1rem;
+  animation: animate-move 0.5s linear;
+}
+.image2 {
+  --x: -1rem;
+  --y: 1rem;
+  animation: animate-move 0.5s linear;
+}
+.image3 {
+  --x: 1rem;
+  --y: -1rem;
+  animation: animate-move 0.5s linear;
+}
+.image4 {
+  --x: 1rem;
+  --y: 1rem;
+  animation: animate-move 0.5s linear;
+}
+
+.image1:hover,
+.image2:hover,
+.image3:hover,
+.image4:hover {
+  transform: translate(calc(var(--x) / 2), calc(var(--y) / 2));
+}
+
 section {
   min-height: 100vh;
-  height: fit-content;
   width: 100%;
   text-align: center;
   padding: 1rem;
@@ -46,20 +49,13 @@ section {
   justify-content: center;
 }
 
-.whatWeDoH3::before {
-  content: "";
-  margin: 0 1rem;
-  display: inline-block;
-  width: 200px; /* Adjust the length of the line */
-  height: 1px; /* Adjust the thickness of the line */
-  background-color: #ff8000;
-}
+.whatWeDoH3::before,
 .whatWeDoH3::after {
   content: "";
   margin: 0 1rem;
   display: inline-block;
-  width: 200px; /* Adjust the length of the line */
-  height: 1px; /* Adjust the thickness of the line */
+  width: 200px;
+  height: 1px;
   background-color: #ff8000;
 }
 
@@ -85,8 +81,9 @@ section {
   position: relative;
 }
 
-.sectionOfImages img {
+img {
   cursor: pointer;
+  object-fit: cover;
 }
 
 .imagesDeclerationsTopLeft h3,
@@ -96,42 +93,9 @@ section {
   color: #ff8000;
 }
 
-img {
-  object-fit: cover;
-}
-
-.image1 {
-  animation: animate-top-left 0.5s linear;
-}
-.image2 {
-  animation: animate-bottom-left 0.5s linear;
-}
-.image3 {
-  animation: animate-top-right 0.5s linear;
-}
-.image4 {
-  animation: animate-bottom-right 0.5s linear;
-}
-
-.image1:hover {
-  transform: translate(-0.5rem, -0.5rem);
-}
-.image2:hover {
-  transform: translate(-0.5rem, 0.5rem);
-}
-.image3:hover {
-  transform: translate(0.5rem, -0.5rem);
-}
-.image4:hover {
-  transform: translate(0.5rem, 0.5rem);
-}
-
 .imagesDeclerations {
   margin: 0 0 2rem 1rem;
   text-align: left;
-}
-.imagesDeclerations h3 {
-  color: #ff8000;
 }
 
 .pod-h2 {
@@ -146,11 +110,13 @@ img {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  flex-direction: column;
 }
 
 .pod-description {
   text-align: left;
   color: white;
+  order: 2;
 }
 
 .pod-description h2 {
@@ -158,14 +124,10 @@ img {
   margin-bottom: 0.2rem;
 }
 
-.date-pod {
-  color: gray;
-  margin-top: 1rem;
-}
-
 .pod-section img {
-  height: 80vh;
-  width: 40vw;
+  order: 1;
+  width: 95vw;
+  height: 12rem;
   border-radius: 25px;
   transition: 0.5s;
 }
@@ -193,37 +155,6 @@ img {
   gap: 1rem;
 }
 
-.gallery-cards {
-  height: 25rem;
-  width: 18rem;
-  display: flex;
-  align-items: end;
-  text-align: start;
-  padding: 1rem;
-}
-
-.gallery-cards h3 {
-  font-size: 4cqb;
-}
-
-.gallery-card1 {
-  background: url("/space-images/asteroids.jpg") no-repeat center;
-  background-size: cover;
-}
-.gallery-card2 {
-  background: url("/space-images/solar-system.jpg") no-repeat center;
-  background-size: cover;
-}
-.gallery-card3 {
-  background: url("/space-images/search.jpg") no-repeat center;
-  background-size: cover;
-}
-.gallery-card4 {
-  background: url("/space-images/exoplanets.jpg") no-repeat center;
-  background-size: cover;
-}
-
-/* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .sectionOfImages {
     flex-direction: column;
@@ -233,92 +164,14 @@ img {
     transform: translate(0);
   }
 
-  .topImages img {
-    margin: 1rem 0;
-  }
-
-  .bottomImages img {
-    margin: 1rem 0;
-  }
-
-  .imagesSpace {
-    border-radius: 25px;
-    width: 95vw;
-    height: 10rem;
-  }
-
-  .whatWeDoH3::before {
-    width: 70px; /* Adjust the length of the line */
-  }
+  .whatWeDoH3::before,
   .whatWeDoH3::after {
-    width: 70px; /* Adjust the length of the line */
+    width: 70px;
   }
 
   .whatWeDo h2 {
     font-size: 2rem;
   }
-  .imagesDeclerationsTopLeft,
-  .imagesDeclerationsTopRight,
-  .imagesDeclerationsBottomLeft,
-  .imagesDeclerationsBottomRight {
-    display: none;
-  }
-
-  .pod-section {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .pod-description {
-    order: 2;
-  }
-
-  .pod-section img {
-    order: 1;
-    width: 95vw;
-    height: 12rem;
-  }
-
-  .gallery-cards {
-    height: 90vh;
-    width: 90vw;
-  }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) and (max-width: 767px) {
-  .sectionOfImages {
-    flex-direction: column;
-  }
-
-  .sectionOfImages img:hover {
-    transform: translate(0);
-  }
-
-  .topImages img {
-    margin: 1rem 0;
-  }
-
-  .bottomImages img {
-    margin: 1rem 0;
-  }
-
-  .imagesSpace {
-    border-radius: 25px;
-    width: 95vw;
-    height: 15rem;
-  }
-
-  .whatWeDoH3::before {
-    width: 90px; /* Adjust the length of the line */
-  }
-  .whatWeDoH3::after {
-    width: 90px; /* Adjust the length of the line */
-  }
-
-  .whatWeDo h2 {
-    font-size: 2.5rem;
-  }
 
   .imagesDeclerationsTopLeft,
   .imagesDeclerationsTopRight,
@@ -326,72 +179,11 @@ img {
   .imagesDeclerationsBottomRight {
     display: none;
   }
-
-  .pod-section {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .pod-description {
-    order: 2;
-  }
-
-  .pod-section img {
-    order: 1;
-    width: 95vw;
-    height: 12rem;
-  }
-
-  .pod-section img {
-    order: 1;
-    width: 95vw;
-    height: 12rem;
-  }
-
-  .gallery-images {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery-cards {
-    height: 90vh;
-    width: 90vw;
-  }
 }
 
-/* to delete repetitve code only */
 @media only screen and (min-width: 768px) {
   .imagesDeclerations {
     display: none;
-  }
-
-  .topImages .image2,
-  .bottomImages .image4 {
-    margin-top: -0.1rem;
-  }
-
-  .topImages,
-  .bottomImages {
-    padding: 1rem 0;
-  }
-
-  .image1 {
-    border-radius: 100% 0 0 0;
-    transition: 0.5s;
-  }
-
-  .image2 {
-    border-radius: 0 0 0 100%;
-    transition: 0.5s;
-  }
-
-  .image3 {
-    border-radius: 0 100% 0 0;
-    transition: 0.5s;
-  }
-
-  .image4 {
-    border-radius: 0 0 100% 0;
-    transition: 0.5s;
   }
 
   .imagesSpace {
@@ -400,62 +192,8 @@ img {
     box-shadow: 0 20px 80px rgba(79, 79, 223, 0.251);
   }
 
-  .whatWeDoH3::before {
-    width: 100px; /* Adjust the length of the line */
-  }
+  .whatWeDoH3::before,
   .whatWeDoH3::after {
-    width: 100px; /* Adjust the length of the line */
+    width: 100px;
   }
-
-  .imagesDeclerationsTopLeft {
-    width: 30%;
-    text-align: left;
-    position: absolute;
-    left: 2rem;
-    top: 5%;
-  }
-
-  .imagesDeclerationsTopRight {
-    width: 30%;
-    text-align: left;
-    position: absolute;
-    right: 1rem;
-    top: 5%;
-  }
-  .imagesDeclerationsBottomLeft {
-    width: 30%;
-    text-align: left;
-    position: absolute;
-    left: 2rem;
-    bottom: 5%;
-  }
-  .imagesDeclerationsBottomRight {
-    width: 30%;
-    text-align: left;
-    position: absolute;
-    right: 2rem;
-    bottom: 5%;
-  }
-}
-
-/* ---------------------------------------------------------------------------------- */
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .pod-section img {
-    width: 20rem;
-    height: 60vh;
-  }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  .imagesSpace {
-    width: 20rem;
-    height: 20rem;
-  }
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
 }
