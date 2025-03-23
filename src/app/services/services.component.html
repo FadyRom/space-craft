@@ -28,4 +28,26 @@
 </section>
 }
 
+<section class="search-section">
+  <div class="search-div">
+    <h2>do you have anything in mind? <span>search it!</span></h2>
+    <input
+      #searchInput
+      type="search"
+      placeholder="Search Here"
+      (keydown.enter)="searchNasa(searchInput.value)"
+    />
+  </div>
+  <div
+    class="carousel"
+    [@scaleFade]="animationState()"
+    [ngStyle]="{
+      'background-image': 'url(' + displayedCarousel() + ')',
+      'background-repeat': 'no-repeat',
+      'background-size': 'cover',
+      'background-position': 'center'
+    }"
+  ></div>
+</section>
+
 <app-footer />

@@ -74,9 +74,7 @@ section {
   overflow: hidden;
   position: relative;
 }
-.sectionOfImages img {
-  cursor: pointer;
-}
+
 img {
   object-fit: cover;
 }
