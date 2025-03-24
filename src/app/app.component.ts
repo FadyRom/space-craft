@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
 
 @Component({
@@ -11,4 +11,14 @@ import { NavComponent } from './nav/nav.component';
 })
 export class AppComponent {
   title = 'space-craft';
+
+  private router = inject(Router);
+
+  constructor() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
+      }
+    });
+  }
 }
