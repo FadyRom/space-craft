@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
 
@@ -9,16 +9,23 @@ import { NavComponent } from './nav/nav.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'space-craft';
 
   private router = inject(Router);
+  private destroyRef = inject(DestroyRef);
 
-  constructor() {
-    this.router.events.subscribe((event) => {
+  constructor() {}
+
+  ngOnInit(): void {
+    const sub = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
       }
+    });
+
+    this.destroyRef.onDestroy(() => {
+      sub.unsubscribe();
     });
   }
 }
