@@ -14,4 +14,9 @@ export class NavComponent {
   showNav() {
     return this.navState.set(!this.navState());
   }
+
+  openMail() {
+    this.showNav(); // Call the method to show navigation
+    window.location.href = 'mailto: romanyfady22@gmail.com'; // Open mail client
+  }
 }

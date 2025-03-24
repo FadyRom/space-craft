@@ -49,6 +49,7 @@
 
 .search-image-explanation-div p {
   flex-grow: 2;
+  padding: 1rem;
 }
 
 .load-more {

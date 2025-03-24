@@ -98,9 +98,13 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    setInterval(() => {
+    const intervalSub = setInterval(() => {
       this.changeCarousel();
     }, 5000);
+
+    this.destroyRef.onDestroy(() => {
+      clearInterval(intervalSub);
+    });
   }
 
   loadMore() {

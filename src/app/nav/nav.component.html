@@ -17,13 +17,17 @@
       <a routerLink="/gallery" routerLinkActive="active-link">Gallery</a>
     </li>
     <li class="nav-links">
-      <a routerLink="/contact-us" routerLinkActive="active-link">Contact Us</a>
+      <a (click)="openMail()" href="#" role="button">Contact Us</a>
     </li>
   </ul>
 
   <div class="icons">
-    <i class="fa-brands fa-linkedin"></i>
-    <i class="fa-brands fa-github"></i>
+    <a href="https://linkedin.com/in/fadi-romany-b1a982267" target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/FadyRom" target="_blank">
+      <i class="fa-brands fa-github"></i>
+    </a>
   </div>
 
   <div class="small-nav">
@@ -71,12 +75,7 @@
       >
     </li>
     <li class="nav-links">
-      <a
-        (click)="showNav()"
-        routerLink="/contact-us"
-        routerLinkActive="active-link"
-        >Contact Us</a
-      >
+      <a (click)="showNav()" href="mailto:romanyfady22@gmail.com">Contact Us</a>
     </li>
   </ul>
   }
