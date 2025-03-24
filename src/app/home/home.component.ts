@@ -35,13 +35,15 @@ export class HomeComponent implements AfterViewInit, OnInit {
   ngOnInit(): void {}
 
   ngAfterViewInit() {
-    this.sections.forEach((section: ElementRef) => {
-      this.animateOnScroll(section.nativeElement);
-    });
+    setTimeout(() => {
+      this.sections.forEach((section: ElementRef) => {
+        this.animateOnScroll(section.nativeElement);
+      });
 
-    this.imageElements.forEach((image: ElementRef) => {
-      this.animateOnScroll(image.nativeElement);
-    });
+      this.imageElements.forEach((image: ElementRef) => {
+        this.animateOnScroll(image.nativeElement);
+      });
+    }, 100);
   }
 
   animateOnScroll(element: HTMLElement) {

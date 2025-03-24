@@ -34,12 +34,19 @@
   <div class="animated-div" (click)="showNav()"></div>
   <ul class="nav-ul-small">
     <li class="logo-close-li">
-      <img src="logo.png" alt="space craft logo" class="logo" routerLink="/" />
+      <img
+        src="logo.png"
+        alt="space craft logo"
+        class="logo"
+        (click)="showNav()"
+        routerLink="/"
+      />
       <i class="fa-solid fa-xmark" (click)="showNav()"></i>
     </li>
 
     <li class="nav-links">
       <a
+        (click)="showNav()"
         routerLink="/"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -48,13 +55,28 @@
     </li>
 
     <li class="nav-links">
-      <a routerLink="/services" routerLinkActive="active-link">Services</a>
+      <a
+        (click)="showNav()"
+        routerLink="/services"
+        routerLinkActive="active-link"
+        >Services</a
+      >
     </li>
     <li class="nav-links">
-      <a routerLink="/gallery" routerLinkActive="active-link">Gallery</a>
+      <a
+        (click)="showNav()"
+        routerLink="/gallery"
+        routerLinkActive="active-link"
+        >Gallery</a
+      >
     </li>
     <li class="nav-links">
-      <a routerLink="/contact-us" routerLinkActive="active-link">Contact Us</a>
+      <a
+        (click)="showNav()"
+        routerLink="/contact-us"
+        routerLinkActive="active-link"
+        >Contact Us</a
+      >
     </li>
   </ul>
   }
