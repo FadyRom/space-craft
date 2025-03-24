@@ -44,9 +44,11 @@ export class GalleryComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.images().forEach((image: any) => {
-      this.animateOnScroll(image.nativeElement);
-    });
+    setTimeout(() => {
+      this.images().forEach((image: any) => {
+        this.animateOnScroll(image.nativeElement);
+      });
+    }, 100);
   }
 
   searchImage(alt: string) {

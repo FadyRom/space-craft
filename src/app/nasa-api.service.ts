@@ -52,8 +52,12 @@ export class NasaApiService {
       )
       .pipe(
         tap({
-          next: (res) => this.collection.set(res.collection.items),
+          next: (res) => {
+            this.collection.set([]);
+            this.collection.set(res.collection.items);
+          },
           complete: () => {
+            this.collectionLinksData.set([]);
             for (let i = 0; i < this.collection().length; i++) {
               const collectionLinks = this.collection()[i].links.find(
                 (link: any) => link.rel === 'canonical'
@@ -67,6 +71,7 @@ export class NasaApiService {
                 },
               ]);
             }
+            console.log(this.collectionLinksData());
           },
         })
       );

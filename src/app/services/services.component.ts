@@ -4,10 +4,12 @@ import {
   Component,
   computed,
   DestroyRef,
+  ElementRef,
   inject,
   input,
   OnInit,
   signal,
+  viewChild,
 } from '@angular/core';
 import { NasaApiService } from '../nasa-api.service';
 import { COLLECTION_LINKS_DATA } from '../interface';
@@ -51,6 +53,8 @@ import { Router } from '@angular/router';
 })
 export class ServicesComponent implements OnInit, AfterViewInit {
   searchTerm = input<string>('');
+
+  private searchResults = viewChild<ElementRef>('searchResults');
 
   private destroyRef = inject(DestroyRef);
   private nasaApiService = inject(NasaApiService);
@@ -120,5 +124,19 @@ export class ServicesComponent implements OnInit, AfterViewInit {
 
   searchNasa(searchInput: string) {
     this.router.navigate(['/services/', searchInput]);
+    const sub = this.nasaApiService.searchImages(searchInput).subscribe({
+      complete: () => {
+        this.displayCollection.set(this.collectionLinksData().slice(0, 2));
+        this.noResults.set(this.displayCollection().length === 0);
+        this.searchResults()!.nativeElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      },
+    });
+
+    this.destroyRef.onDestroy(() => {
+      sub.unsubscribe();
+    });
   }
 }

@@ -8,7 +8,7 @@
 
 <section class="search-results" #searchResults>
   <h2>{{ searchTerm() }}</h2>
-  @for (item of displayCollection();track item) {
+  @for (item of displayCollection();track item.collectionData.description) {
   <div class="search-image-explanation-div">
     <p>{{ item.collectionData.description }}</p>
     <img
